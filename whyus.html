@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Why Choose Us? - Viora Visuals</title>
+  <!-- Satoshi font from Fontshare CDN -->
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,700,900&display=swap">
+  <style>
+    body {
+      background:
+        radial-gradient(
+          circle at 0% 35%,
+          #DDB7EB 0%,
+          #DDB7EB 1%,
+          rgba(221,183,235,0.10) 50%,
+          transparent 80%
+        ),
+        #fdf6f0;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: 'Satoshi', Arial, sans-serif;
+      color: #222;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 40px 30px;
+      background: none;
+      border-radius: 18px;
+      align-items: flex-start;
+      gap: 64px;
+    }
+
+    .left {
+      flex: 1.1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      min-width: 340px;
+      max-width: 440px;
+    }
+
+    .why-heading {
+      margin-bottom: 18px;
+      text-align: left;
+      line-height: 1.05;
+    }
+
+    .why-heading .why {
+      color: #984fd6;
+      font-size: 3.5rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.08em;
+      letter-spacing: -2px;
+      font-family: 'Satoshi', Arial, sans-serif;
+    }
+
+    .why-heading .choose {
+      color: #222;
+      font-size: 3.5rem;
+      font-weight: 600;
+      display: block;
+      letter-spacing: -2px;
+      font-family: 'Satoshi', Arial, sans-serif;
+    }
+
+    .left p {
+      font-size: 1.13rem;
+      line-height: 1.6;
+      margin-bottom: 32px;
+      text-align: justify;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .left button {
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 32px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: 'Satoshi', Arial, sans-serif;
+      font-weight: 700;
+      margin-top: 10px;
+      box-shadow: 0 2px 8px rgba(80,40,120,0.04);
+      text-align: justify;
+    }
+    .left button:hover {
+      background: #984fd6;
+    }
+
+    .right {
+      flex: 1.5;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      min-width: 420px;
+    }
+
+    .accordion {
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: none;
+      border: 2px solid #222;
+      transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+      margin-bottom: 0;
+      position: relative;
+    }
+    .accordion.active {
+      background: #DDB7EB;
+      border: 2px solid #DDB7EB;
+      box-shadow: 0 4px 24px rgba(152, 79, 214, 0.08);
+    }
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 28px;
+      font-size: 1.18rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      outline: none;
+      transition: background 0.2s;
+      color: #222;
+      font-family: 'Satoshi', Arial, sans-serif;
+    }
+    .accordion.active .accordion-header {
+  position: relative;
+}
+
+
+.accordion.active .accordion-header::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 4px;
+  width: 95%;         /* Adjust this value for the desired line length */
+  height: 1px;
+  background: #222;
+  border-radius: 2px;
+}
+
+
+    
+    .accordion-header .icon {
+      font-size: 1.35rem;
+      font-weight: bold;
+      color: #222;
+      border-radius: 50%;
+      border: 1.5px solzid #222;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+      background: #fff;
+    }
+    .accordion.active .accordion-header .icon {
+      color: #222;
+      border-color: #DDB7EB;
+      background: #DDB7EB;
+    }
+    .accordion-content {
+      display: none;
+      padding: 0 28px 18px 28px;
+      font-size: 1.05rem;
+      color: #222;
+      background: none;
+      animation: fadeIn 0.3s;
+      font-weight: 500;
+      margin-top: -2px;
+    }
+    .accordion.active .accordion-content {
+      display: block;
+      background: none;
+    }
+    .accordion.active .accordion-header {
+      color: #222;
+      background: none;
+    }
+    .accordion:not(.active) .accordion-header:hover {
+      background: #f6f0fa;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .container {
+        flex-direction: column;
+        padding: 24px 8px;
+        gap: 36px;
+      }
+      .left, .right {
+        min-width: 0;
+        max-width: 100%;
+      }
+      .right {
+        width: 100%;
+      }
+    }
+    @media (max-width: 700px) {
+      .why-heading .why,
+      .why-heading .choose {
+        font-size: 2.1rem;
+      }
+      .container {
+        padding: 12px 2vw;
+      }
+      .left button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <div class="why-heading">
+        <span class="why">Why</span>
+        <span class="choose">choose us?</span>
+      </div>
+      <p>
+        Because at Viora Visuals, we’re more than just a creative agency – we’re a squad of passionate creators ready to bring your brand to life with fresh ideas, bold vibes, and a whole lot of personality. We work hard, play harder, and make sure your brand doesn’t just blend in but straight-up stands out. When you roll with us, you get the full energy, the fun, and the magic that only a tight-knit team can deliver. Let’s make something epic together!
+      </p>
+      <button>Have more questions?</button>
+    </div>
+    <div class="right">
+      <div class="accordion" id="acc-1">
+        <div class="accordion-header">
+          What kind of services does Viora Visuals offer?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          We’re all about branding, UI/UX design, logo creation, and social media management — basically, everything you need to make your brand pop and connect with people.
+        </div>
+      </div>
+      <div class="accordion" id="acc-2">
+        <div class="accordion-header">
+          How do you keep your designs fresh and unique?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          Our team thrives on creativity and innovation. We constantly explore trends, experiment with styles, and tailor every project to your brand’s unique vibe.
+        </div>
+      </div>
+      <div class="accordion" id="acc-3">
+        <div class="accordion-header">
+          Can you help with social media strategy too?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          Absolutely! We don’t just design — we strategize, plan, and manage your social media presence to maximize engagement and growth.
+        </div>
+      </div>
+      <div class="accordion" id="acc-4">
+        <div class="accordion-header">
+          How involved will I be in the design process?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          You’re part of the journey! We keep you in the loop, gather your feedback, and make sure the final result is something you love.
+        </div>
+      </div>
+      <div class="accordion" id="acc-5">
+        <div class="accordion-header">
+          What makes Viora Visuals different?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          It’s all about our energy, passion, and dedication. We’re a tight-knit team that genuinely cares about making your brand shine in a way that’s bold, memorable, and uniquely you.
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Accordion functionality
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', function() {
+        const parent = this.parentElement;
+        // Close all accordions except the clicked one
+        document.querySelectorAll('.accordion').forEach(acc => {
+          if (acc !== parent) {
+            acc.classList.remove('active');
+            acc.querySelector('.icon').textContent = '+';
+          }
+        });
+        // Toggle the clicked accordion
+        parent.classList.toggle('active');
+        // Change icon to minus (true minus sign) when open, plus when closed
+        const icon = this.querySelector('.icon');
+        if (parent.classList.contains('active')) {
+            icon.textContent = '−'; // Unicode minus sign U+2212
+        } else {
+          icon.textContent = '+';
+        }
+      });
+    });
+  </script>
+  
+</body>
+</html>
